@@ -12,9 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 
 initRoutes(app);
 
-app.use("/", express.static("./client/build"));
+app.use("/", express.static("./client/dist"));
 
-const port = 3050;
+const port = 3333;
 app.listen(port, () => {});
 
 export { app };
