@@ -1,4 +1,6 @@
 import { FIGHTER } from "../models/fighter.js";
+import { responseMiddleware } from "./response.middleware.js";
+import { fighterService } from "../services/fighterService.js";
 
 const valuesToValidate = {
   name: {
@@ -43,7 +45,7 @@ const createFighterValid = (req, res, next) => {
   Object.keys(FIGHTER).forEach((field) => {
     if (
       field !== "id" &&
-      !valuesToValidate[field].required &&
+      valuesToValidate[field].required &&
       isEmptyValue(candidate[field])
     ) {
       errors.push(`${field} is required`);
